@@ -6,13 +6,19 @@ function App() {
     <div> 
         <h1> Hello React </h1> 
         <Pizza />
+        <Pizza />
     </div>
     );
 }
 
 // Uppercase 
 function Pizza(){
-    return <h2>Pizza</h2>
+    return (
+    <div>
+        <img src="pizzas/spinaci.jpg" alt="Pizza Spinaci"/>
+        <h2>Pizza</h2>
+    </div>
+    )
 }
 
 const root = createRoot(document.getElementById("root"));
