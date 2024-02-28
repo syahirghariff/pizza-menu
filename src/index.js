@@ -28,8 +28,8 @@ function Header () {
 
 function Menu () {
 
-    // const pizzas = pizzaData;
-    const pizzas = null;
+    const pizzas = pizzaData;
+    // const pizzas = null;
 
     return (
         <main className="menu">
@@ -74,6 +74,10 @@ function Pizza(props){
 
     const pizza = props.pizza;
 
+    if (pizza.soldOut) {
+        return null; 
+    }
+
     return (
         <li className="pizza">
             <img src={pizza.photoName} alt={pizza.name} />
@@ -92,6 +96,15 @@ function Footer() {
     const openHour = 20; 
     const closeHour = 22; 
     const isOpen = hour >= openHour && hour <= closeHour;
+
+
+    if (!isOpen) {
+        return (
+        <p>  
+            We're happy to welcome you between {openHour} and {closeHour}
+        </p>
+        )
+    }
 
     return (
         <footer className="footer">
