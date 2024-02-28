@@ -35,6 +35,8 @@ function Menu () {
         <main className="menu">
             <h2> Our menu </h2>
 
+            
+
             {/* { pizzas && (
                 <ul className="pizzas"> 
                     {pizzas.map(p => 
@@ -43,10 +45,13 @@ function Menu () {
             )} */}
 
             { pizzas ? (
-                <ul className="pizzas"> 
-                    {pizzas.map(p => 
-                    <Pizza pizza={p} key={p.name}/>)}
-                </ul>
+                <>
+                    <p> Authentic Italian cuisine. 6 creative dishes to choose from. All from our stone oven, all organic, all delicious </p>
+                    <ul className="pizzas"> 
+                        {pizzas.map(p => 
+                        <Pizza pizza={p} key={p.name}/>)}
+                    </ul>
+                </>
             ) : ( <p> We're still working on our menu. Please come back later </p> ) }
 
             
