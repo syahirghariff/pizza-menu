@@ -1,5 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
+import { pizzaData } from "./data"
 import "./index.css";
 
 function App() {
@@ -29,7 +30,15 @@ function Menu () {
     return (
         <main className="menu">
             <h2> Our menu </h2>
-            <Pizza 
+
+            <ul className="pizzas"> 
+                {pizzaData.map(p => 
+                <Pizza pizza={p} key={p.name}/>)}
+            </ul>
+
+            {/* key: internal react prop, for performance optimzation */}
+
+            {/* <Pizza 
             name="Pizza Spinaci" 
             ingredients="Tomato, mozarella" 
             photoName="pizzas/spinaci.jpg" 
@@ -39,7 +48,7 @@ function Menu () {
             name="Pizza Funghi" 
             ingredients="Tomato, mozarella" 
             photoName="pizzas/spinaci.jpg" 
-            price="10" />
+            price="10" /> */}
         </main>
     ) 
 }
@@ -48,15 +57,17 @@ function Menu () {
 function Pizza(props){
     console.log(props); 
 
+    const pizza = props.pizza;
+
     return (
-        <div className="pizza">
-            <img src={props.photoName} alt={props.name} />
+        <li className="pizza">
+            <img src={pizza.photoName} alt={pizza.name} />
             <div>
-                <h3>{props.name}</h3>
-                <p>{props.ingredients}</p>
-                <span>{props.price + 3}</span>
+                <h3>{pizza.name}</h3>
+                <p>{pizza.ingredients}</p>
+                <span>{pizza.price}</span>
             </div>
-        </div>
+        </li>
     )
 }
 
