@@ -69,11 +69,8 @@ function Menu () {
 }
 
 // Uppercase 
-function Pizza(props){
-    console.log(props); 
-
-    const pizza = props.pizza;
-
+function Pizza({pizza}){
+  
     if (pizza.soldOut) {
         return null; 
     }
@@ -126,10 +123,10 @@ function Footer() {
     //return React.createElement('footer', null, "We're currently open!");
 }
 
-function Order(props) {
+function Order({closeHour}) {
     return (
         <div className="order">
-            <p> We're open until {props.closeHour}. Come visit us or order online </p>
+            <p> We're open until {closeHour}. Come visit us or order online </p>
             <button className="btn">Order</button>
         </div>
     )
